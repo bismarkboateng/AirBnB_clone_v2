@@ -54,6 +54,7 @@ class HBNBCommand(cmd.Cmd):
         """ Method to print instance """
         if len(argument) == 0:
             print('** class name missing **')
+            return
 
         elif argument.split()[0] not in self.classes:
             print("** class doesn't exist **")
@@ -72,15 +73,18 @@ class HBNBCommand(cmd.Cmd):
         """ Method to delete instance with class and id """
         if len(argument) == 0:
             print("** class name missing **")
+            return
 
-        arg_list = arg.split()
+        arg_list = argument.split()
         try:
             obj = eval(arg_list[0])
         except Exception:
             print("** class doesn't exist **")
+            return
 
         if len(arg_list) == 1:
             print('** instance id missing **')
+            return
 
         if len(arg_list) > 1:
             key = arg_list[0] + '.' + arg_list[1]
@@ -104,9 +108,11 @@ class HBNBCommand(cmd.Cmd):
         argument = argument.split()
         if len(argument) == 0:
             print('** class name missing **')
+            return
 
         elif argument[0] not in self.classes:
             print("** class doesn't exist **")
+            return
 
         elif len(argument) == 1:
             print('** instance id missing **')

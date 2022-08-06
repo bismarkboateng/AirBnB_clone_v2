@@ -27,8 +27,7 @@ Documented commands (type help <topic>):
 EOF  help  quit
  
 <br>
- 
-(hbnb) 
-(hbnb) 
+(hbnb) <br>
+(hbnb) <br>
 (hbnb) quit
 $

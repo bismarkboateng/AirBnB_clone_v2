@@ -1,12 +1,11 @@
 ![airbnb](https://user-images.githubusercontent.com/60371335/183240794-ac0e13a9-15fc-49c2-bbef-8534b0689e48.png)
 
 # AirBnB clone - The console <br> 
-The AirBnB console this about create a minishell, this console works in interactive and non-interactive mode; this project is just a basic copy of AirBnB,
+The goal of this project is to create a basic clone of AirBnB, which operates in both interactive and non-interactive modes.
 
 # command interpreter or console 
 
-The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
-
+Utilizing a robust storage system is the first step. We will be able to abstract between "My Object" and "How they are saved and persisted" thanks to this storage engine. This implies that you won't have to pay attention to (take care of) how your objects are saved from your console code (the command interpreter itself) or from the front-end and RestAPI you will write later.
 
 # how to start it:
 

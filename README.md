@@ -12,7 +12,7 @@ Utilizing a robust storage system is the first step. We will be able to abstract
 In order to start the console, you must use the following command: ./console.py
 
 
-# How to use: 3
+# How to use: 
 
  * manage (create, update, destroy, etc) objects via a console / command interpreter
  * store and persist objects to a file (JSON file)

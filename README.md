@@ -7,8 +7,8 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 how to start it:
 In order to start the console, you must use the following command: ./console.py
 
-How to used:
-manage (create, update, destroy, etc) objects via a console / command interprete
+How to use:
+manage (create, update, destroy, etc) objects via a console / command interpreter
 store and persist objects to a file (JSON file)
 Commands: create, show, destroy, all (shows all), update, help, quit
 Example how to open:
@@ -23,7 +23,3 @@ EOF  help  quit
 (hbnb) 
 (hbnb) quit
 $
-
-Contact Info:
-Git: 
-Git: jezmu

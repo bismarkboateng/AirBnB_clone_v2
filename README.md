@@ -7,25 +7,27 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 
 
 # how to start it:
-<br>
+
 In order to start the console, you must use the following command: ./console.py
 
 
 # How to use: 3
-<br>
+
  * manage (create, update, destroy, etc) objects via a console / command interpreter
  * store and persist objects to a file (JSON file)
  * Commands: create, show, destroy, all (shows all), update, help, quit
  
 
-### Example how to open: <br> 
-$ ./console.py
+### Example how to open:
+$ ./console.py <br>
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-
+ 
+<br>
+ 
 (hbnb) 
 (hbnb) 
 (hbnb) quit

@@ -21,8 +21,8 @@ In order to start the console, you must use the following command: ./console.py
  
 
 ### Example how to open:
-$ ./console.py <br>
-(hbnb) help
+> $ ./console.py <br>
+> (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================

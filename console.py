@@ -90,7 +90,6 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print('** no instance found **')
 
-
     def do_all(self, argument):
         """ Method to print all instances """
         if len(argument) == 0:
@@ -128,6 +127,7 @@ class HBNBCommand(cmd.Cmd):
                     print('** attribute name missing **')
             else:
                 print('** no instance found **')
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()

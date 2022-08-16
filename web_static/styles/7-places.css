@@ -1,26 +1,22 @@
 .places {
-  max-width: 1000px;
-  margin: 0px auto;
-  font-size: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    text-align: center;
 }
+
 .places h1 {
-  width: 100%;
-  padding-left: 22px;
+    text-align: left;
+    font-size: 30px;
+}
+
+.places h2 {
+    font-size: 30px;
+    text-align: center;
 }
 
 .places article {
-  width: 390px;
-  padding: 20px;
-  margin: 20px;
-  border: 1px solid red;
-  border-radius: 4px;
-  display: flex;
-  justify-content: center;
-}
-
-.places article h2 {
-  font-size: 30px;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: #FF5A5F 1px solid;
+    border-radius: 4px;
+    display: inline-block;
 }

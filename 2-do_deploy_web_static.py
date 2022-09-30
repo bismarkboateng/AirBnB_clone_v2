@@ -1,50 +1,64 @@
 #!/usr/bin/python3
-"""A fabric script that distributes an archive to your web servers, using the
-function do_deploy"""
-from fabric.api import *
-import os.path
+"""Generates a .tgz archive from the
+contents of the web_static folder
+Distributes an archive to a web server"""
+
+from fabric.operations import local, run, put, sudo
+from datetime import datetime
+import os
+from fabric.api import env
+import re
 
 
-env.hosts = ['44.192.65.51', '3.238.123.71']
+env.hosts = ['3.236.139.103', '44.197.108.121']
+
+
+def do_pack():
+    """Function to compress files in an archive"""
+    local("mkdir -p versions")
+    result = local("tar -cvzf versions/web_static_{}.tgz web_static"
+                   .format(datetime.strftime(datetime.now(), "%Y%m%d%H%M%S")),
+                   capture=True)
+    if result.failed:
+        return None
+    return result
 
 
 def do_deploy(archive_path):
-    """distributes an archive to your web servers"""
+    """Function to distribute an archive to a server"""
     if not os.path.exists(archive_path):
         return False
-    archive_list = archive_path.split("/")
-    archive_filename = archive_list[-1]
-    filename_list = archive_filename.split(".")
-    filename_noext = filename_list[0]
-    result = put(archive_path, "/tmp/")
-    if result.failed:
+    rex = r'^versions/(\S+).tgz'
+    match = re.search(rex, archive_path)
+    filename = match.group(1)
+    res = put(archive_path, "/tmp/{}.tgz".format(filename))
+    if res.failed:
         return False
-    result = run('mkdir -p /data/web_static/releases/{:}/'.format(
-        filename_noext))
-    if result.failed:
+    res = sudo("mkdir -p /data/web_static/releases/{}/".format(filename))
+    if res.failed:
         return False
-    result = run('tar -xzf /tmp/{:} -C /data/web_static/releases/{:}/'.format(
-        archive_filename, filename_noext))
-    if result.failed:
+    res = sudo("tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/"
+              .format(filename, filename))
+    if res.failed:
         return False
-    result = run('rm /tmp/{:}'.format(archive_filename))
-    if result.failed:
+    res = sudo("rm /tmp/{}.tgz".format(filename))
+    if res.failed:
         return False
-    result = run('mv /data/web_static/releases/{:}/web_static/* \
-                 /data/web_static/releases/{:}/'.format(
-                     filename_noext, filename_noext))
-    if result.failed:
+    res = sudo("mv /data/web_static/releases/{}"
+              "/web_static/* /data/web_static/releases/{}/"
+              .format(filename, filename))
+    if res.failed:
         return False
-    result = run("rm -rf /data/web_static/releases/{:}/web_static".format(
-        filename_noext))
-    if result.failed:
+    res = sudo("rm -rf /data/web_static/releases/{}/web_static"
+              .format(filename))
+    if res.failed:
         return False
-    result = run('rm -rf /data/web_static/current')
-    if result.failed:
+    res = sudo("rm -rf /data/web_static/current")
+    if res.failed:
         return False
-    result = run(
-        'ln -s /data/web_static/releases/{:}/ /data/web_static/current'.format(
-            filename_noext))
-    if result.failed:
+    res = sudo("ln -s /data/web_static/releases/{}/ /data/web_static/current"
+              .format(filename))
+    if res.failed:
         return False
+    print('New version deployed!')
     return True

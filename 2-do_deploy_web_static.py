@@ -38,26 +38,26 @@ def do_deploy(archive_path):
     if res.failed:
         return False
     res = sudo("tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/"
-              .format(filename, filename))
+               .format(filename, filename))
     if res.failed:
         return False
     res = sudo("rm /tmp/{}.tgz".format(filename))
     if res.failed:
         return False
     res = sudo("mv /data/web_static/releases/{}"
-              "/web_static/* /data/web_static/releases/{}/"
-              .format(filename, filename))
+               "/web_static/* /data/web_static/releases/{}/"
+               .format(filename, filename))
     if res.failed:
         return False
     res = sudo("rm -rf /data/web_static/releases/{}/web_static"
-              .format(filename))
+               .format(filename))
     if res.failed:
         return False
     res = sudo("rm -rf /data/web_static/current")
     if res.failed:
         return False
     res = sudo("ln -s /data/web_static/releases/{}/ /data/web_static/current"
-              .format(filename))
+               .format(filename))
     if res.failed:
         return False
     print('New version deployed!')

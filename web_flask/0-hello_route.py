@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/", strict_slashes=False)
 def index():
-    """ A route that displays Hello HBNB! """
+    """ A function  that displays Hello HBNB! on the root route / """
     return "Hello HBNB!"
 
 

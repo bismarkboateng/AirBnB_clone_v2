@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# running flask on all ips
+"""
+Flask module that returns a string at /
+"""
 
 from flask import Flask
 

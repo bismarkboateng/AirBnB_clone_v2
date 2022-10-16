@@ -22,7 +22,7 @@ def hbnb():
 @app.route("/c/<text>", strict_slashes=False)
 def c_text(text):
     """ A function that  echos back a variable passed to it at /c/text """
-    return "C %s" % escape(text.replace("_", " "))
+    return "C " + text.replace("_", " ")
 
 
 @app.route('/python/<text>', defaults={'text': 'is cool'},
@@ -30,7 +30,7 @@ def c_text(text):
 # @app.route("/python/<text>", strict_slashes=False)
 def python_text(text):
     """ A route that display a string and input text """
-    return "Python %s" % escape(text.replace("_", " "))
+    return "Python " +  text.replace("_", " ")
 
 
 if __name__ == "__main__":

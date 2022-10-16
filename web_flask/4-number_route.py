@@ -32,11 +32,10 @@ def python_text(text="is cool"):
     return "Python " + text.replace("_", " ")
 
 
-@app.route("/number/<n>", strict_slashses=False)
+@app.route("/number/<int:n>", strict_slashses=False)
 def number(n):
     """ A function that displays a number """
-    if n is int:
-        return "%d is a number" % n
+    return "{:d} is a number".format(n)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port="5000")

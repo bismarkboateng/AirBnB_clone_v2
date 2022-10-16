@@ -27,9 +27,9 @@ def c_text(text):
 
 @app.route("/python", strict_slashes=False)
 @app.route("/python/<text>", strict_slashes=False)
-def python_text(text="is_cool"):
+def python_text(text="is cool"):
     """ A route that display a string and input text """
-    return "Python " +  text.replace("_", " ")
+    return "Python " + text.replace("_", " ")
 
 
 if __name__ == "__main__":

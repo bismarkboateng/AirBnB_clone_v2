@@ -20,8 +20,8 @@ def hbnb():
 
 
 @app.route("/c/<text>", strict_slashes=False)
-def c_is_fun(text):
-    """ echos back a variable passed to it at /c/text """
+def c_text(text):
+    """ A function that  echos back a variable passed to it at /c/text """
     return "C %s" % escape(text.replace("_", " "))
 
 

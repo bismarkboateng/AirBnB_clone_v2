@@ -22,7 +22,7 @@ def hbnb():
 @app.route("/c/<text>", strict_slashes=False)
 def c_is_fun(text):
     """ echos back a variable passed to it at /c/text """
-    return "C %s" % escape(text.replace("_", ""))
+    return "C %s" % escape(text.replace("_", " "))
 
 
 if __name__ == "__main__":

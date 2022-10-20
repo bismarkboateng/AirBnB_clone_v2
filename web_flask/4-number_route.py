@@ -35,7 +35,7 @@ def python_text(text="is cool"):
 @app.route("/number/<int:n>", strict_slashses=False)
 def number(n):
     """ A function that displays a number """
-    return "%i is a number" % n
+    return f"{n} is a number"
 
 
 if __name__ == "__main__":
